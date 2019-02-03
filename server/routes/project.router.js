@@ -10,7 +10,18 @@ router.post('/', (req, res) => {
 
 // Return back array of projects
 router.get('/', (req, res) => {
-    res.send(response);
+    const queryText = `SELECT "projects"."id", "projects"."name", "projects"."description", "projects"."thumbnail", "projects"."website", "projects"."github", "projects"."date_completed"
+                       FROM "projects"
+                       JOIN "tags"
+                       ON "tags"."id" = "projects"."id";`;
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows)
+    }).catch((error) => {
+        console.log('Error in get selecting', error);
+        res.sendStatus(500);
+    });
+    
 });
 
 
