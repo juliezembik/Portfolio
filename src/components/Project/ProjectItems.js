@@ -18,4 +18,4 @@ class ProjectItems extends Component {
     }
 }
 
-export default ProjectItems;
+export default connect()(ProjectItems);

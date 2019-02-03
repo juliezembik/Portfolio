@@ -16,7 +16,7 @@ class ProjectList extends Component {
         return (
             <div>
                 <h3>Project List</h3>
-                {JSON.stringify(this.props.reduxState.projects)}
+                {/* {JSON.stringify(this.props.reduxState.projects)} */}
                 {this.props.reduxState.projects.map((project) => {
                     return (
                         <ProjectItems key={project.id} project={project} />
