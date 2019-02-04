@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
 
 // Return back array of projects
 router.get('/', (req, res) => {
-    const queryText = `SELECT "projects"."id", "projects"."name", "projects"."description", "projects"."thumbnail", "projects"."website", "projects"."github", "projects"."date_completed", "projects"."tag_id"
+    const queryText = `SELECT *
                        FROM "projects"
                        JOIN "tags"
                        ON "tags"."id" = "projects"."id";`;
