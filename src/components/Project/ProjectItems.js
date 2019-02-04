@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 
 class ProjectItems extends Component {
     render() {
         return (
-            <div>
-                <pre>{this.props.project.name}</pre>
-                <p>{this.props.project.description}</p>
-                <pre>{this.props.project.thumbnail}</pre>
-                <pre>{this.props.project.website}</pre>
-                <pre>{this.props.project.github}</pre>
-                <pre>{this.props.project.date_completed}</pre>
-                <pre>{this.props.project.tag_id}</pre>
+            <Card raised="true" >
+                <CardContent>
+                    <Typography color="textPrimary" gutterBottom>
+                        <h2>{this.props.project.name}</h2> 
+                    </Typography>
+                    <Typography component="p">
+                        <p>{this.props.project.description}</p>
+                        <p>{this.props.project.thumbnail}</p>
+                        <pre>{this.props.project.website}</pre>
+                        <a href={this.props.project.github} >Github</a>
+                        <pre>{this.props.project.date_completed}</pre>
+                        <pre>{this.props.project.tag_id}</pre>
+                    </Typography>
+                
+                </CardContent>
 
-            </div>
+            </Card>
         );
     }
 }

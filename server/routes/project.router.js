@@ -32,10 +32,7 @@ router.post('/', (req, res) => {
 
 // Return back array of projects
 router.get('/', (req, res) => {
-    const queryText = `SELECT *
-                       FROM "projects"
-                       JOIN "tags"
-                       ON "tags"."id" = "projects"."id";`;
+    const queryText = `SELECT * FROM "tags" JOIN "projects" ON "projects"."tag_id" = "tags"."id" ORDER BY "projects"."id";`;
     pool.query(queryText)
     .then((result) => {
         res.send(result.rows)
@@ -59,4 +56,4 @@ router.delete('/:id', (req, res) => {
     res.sendStatus(200);
 });
 
-module.exports = router;
+module.exports = router;    
