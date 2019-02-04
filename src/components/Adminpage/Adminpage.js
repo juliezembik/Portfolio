@@ -6,11 +6,11 @@ class Adminpage extends Component {
         super();
         this.state = {
             name: '',
-            // description: '',
-            // website: '',
-            // github: '',
-            // date_completed: '',
-            // tag_id: '',
+            description: '',
+            website: '',
+            github: '',
+            date_completed: '',
+            tag_id: '',
             
         }
         // this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,20 +22,6 @@ class Adminpage extends Component {
         this.props.dispatch(action);
     };
 
-    // handleChange = (event) => {
-    //     console.log(event.target.value);
-    //     event.preventDefault();
-    //     this.setState({
-    //         name: event.target.value.name,
-    //         description: event.target.value.description,
-    //         thumbnail: event.target.value.thumbnail,
-    //         website: event.target.value.website,
-    //         github: event.target.value.github,
-    //         date_completed: event.target.value.date_completed,
-    //         tag_id: event.target.value.tag_id
-    //     });
-        
-    // }
     // handle changes to name field
     handleName = (event) => {
         this.setState({
@@ -44,7 +30,40 @@ class Adminpage extends Component {
         });
     }
 
+    handleDescription = (event) => {
+        this.setState({
+            ...this.state,
+            description: event.target.value,
+        })
+    }
+
+    handleWebsite = (event) => {
+        this.setState({
+            ...this.state,
+            website: event.target.value,
+        })
+    }
+
+    handleGithub = (event) => {
+        this.setState({
+            ...this.state,
+            github: event.target.value,
+        })
+    }
+
+    handleDate = (event) => {
+        this.setState({
+            ...this.state,
+            date_completed: event.target.value,
+        })
+    }
     
+    handleTag = (event) => {
+        this.setState({
+            ...this.state,
+            tag_id: event.target.value,
+        })
+    }
 
 
     
@@ -54,11 +73,11 @@ class Adminpage extends Component {
                 {JSON.stringify(this.state)}
                 <form onSubmit={this.handleSubmit}>
                     <input required type="text" name="name" onChange={this.handleName} placeholder="Name" />
-                    {/* <input type="text" name="description" value={this.state.description} placeholder="Description" />
-                    <input type="text" name="website" value={this.state.website} placeholder="Website" />
-                    <input type="text" name="github" value={this.state.github} placeholder="Github" />
-                    <input type="text" name="date_completed" value={this.state.date_completed} placeholder="Date" />
-                    <input type="text" name="tag_id" value={this.state.tag_id} placeholder="Language" /> */}
+                    <input type="text" name="description" onChange={this.handleDescription} placeholder="Description" />
+                    <input type="text" name="website" onChange={this.handleWebsite} placeholder="Website" />
+                    <input type="text" name="github" onChange={this.handleGithub} placeholder="Github" />
+                    <input type="date" name="date_completed" onChange={this.handleDate} placeholder="Date" />
+                    <input type="text" name="tag_id" onChange={this.handleTag} placeholder="Language" />
                     <button type="submit" value="submit">Submit</button>
                 </form>
             </div>
