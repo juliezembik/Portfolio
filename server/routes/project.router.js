@@ -20,8 +20,8 @@ router.post('/', (req, res) => {
     ];
     pool.query(queryText, queryValues)
     .then((response) => { 
-        res.send(response.data); 
-        console.log('response', response.data);
+        res.send(response); 
+        console.log('response', response);
         
     }).catch((error) => {
         console.log('Error completing POST /projects', error);
@@ -46,5 +46,17 @@ router.get('/', (req, res) => {
     
 });
 
+// Remove project from project list
+router.delete('/:id', (req, res) => {
+    let index = 0;
+    for ( const project of projects) {
+        if (req.params.id === project.id ) {
+            project.splice(index, 1);
+            break;
+        }
+        index += 1;
+    }
+    res.sendStatus(200);
+});
 
 module.exports = router;
