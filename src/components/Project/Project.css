@@ -1,0 +1,9 @@
+#card {
+    border-color: red;
+    border-style: solid;
+    border-radius: 8px;
+    width: 500px;
+    display: inline-block;
+    margin: 15px;
+    padding: 5px;
+}
